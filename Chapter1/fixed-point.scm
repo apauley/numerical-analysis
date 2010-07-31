@@ -7,8 +7,9 @@
 
 (define (fixed-point f initial-guess)
   (define next-guess (f initial-guess))
+  (define tolerance 0.00001)
   (define (close-enough? value1 value2)
-    (= 0 (abs (- value1 value2))))
+    (<= (abs (- value1 value2)) tolerance))
 
   (println initial-guess)
   (if (close-enough? initial-guess next-guess)
@@ -21,4 +22,7 @@
 (define (g1 x)
   (sqrt (+ (* 2 x) 3)))
 
-;(fixed-point g1 4)
+(define (g2 x)
+  (/ 3 (- x 2)))
+
+(fixed-point g2 4.0)
