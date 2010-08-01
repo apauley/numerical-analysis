@@ -18,7 +18,7 @@
   (define (close-enough? value1 value2)
     (<= (abs (- value1 value2)) tolerance))
 
-  (println initial-guess)
+  (println next-guess)
   (if (close-enough? initial-guess next-guess)
       next-guess
       (fixed-point f next-guess)))
