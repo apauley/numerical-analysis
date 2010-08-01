@@ -14,7 +14,8 @@
              (- (f x0) (f x1))))))
 
   (define (close-enough? x)
-    (= (abs x) 0))
+    (define tolerance 0.00001)
+    (<= (abs x) tolerance))
 
   (println x0 " " x1 " " x2 " " (f x2))
   (if (close-enough? (f x2))
