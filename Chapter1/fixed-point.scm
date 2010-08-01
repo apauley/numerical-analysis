@@ -1,9 +1,16 @@
 ;; Section 1.5 of Applied Numerical Analysis:
-;; Fixed-Point Iteration
+;; Fixed-Point Iteration, p. 54
 
-;; The implementation here is mostly taken from Section 1.3.3 of
-;; "Structure and Interpretation of Computer Programs" by Abelson and Sussman
+;; The implementation here is mostly taken from the MIT textbook
+;; "Structure and Interpretation of Computer Programs" by Abelson and
+;; Sussman (Section 1.3.3)
+;; http://mitpress.mit.edu/sicp/full-text/book/book.html
+;; http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs
 
+;; The fixed-point function takes as arguments a function f
+;; and a number to be used as the initial guess.
+;; It then calls itself recursively until it arrives at a
+;; fixed-point of f.
 
 (define (fixed-point f initial-guess)
   (define next-guess (f initial-guess))
