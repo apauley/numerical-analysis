@@ -15,7 +15,4 @@
       x2
       (secant f x1 x2)))
 
-(define (fx x)
-  (+ (* 3 x) (sin x) (- (exp x))))
-
-(println (secant fx 1 0))
+(println (secant example-f 1 0))

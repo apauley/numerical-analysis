@@ -13,3 +13,6 @@ the value where the line intersects with the x-axis"
 (define tolerance 0.00001)
 (define (close-enough-to-zero? x)
   (<= (abs x) tolerance))
+
+(define (example-f x)
+  (+ (* 3 x) (sin x) (- (exp x))))
