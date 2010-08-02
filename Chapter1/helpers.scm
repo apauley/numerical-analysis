@@ -9,3 +9,7 @@ the value where the line intersects with the x-axis"
      (* (f x1)
         (/ (- x0 x1)
            (- (f x0) (f x1))))))
+
+(define tolerance 0.00001)
+(define (close-enough-to-zero? x)
+  (<= (abs x) tolerance))

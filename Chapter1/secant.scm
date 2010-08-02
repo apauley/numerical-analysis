@@ -10,12 +10,8 @@
 (define (secant f x0 x1)
   (define x2 (linear-interpolate f x0 x1))
 
-  (define (close-enough? x)
-    (define tolerance 0.00001)
-    (<= (abs x) tolerance))
-
   (println x0 " " x1 " " x2 " " (f x2))
-  (if (close-enough? (f x2))
+  (if (close-enough-to-zero? (f x2))
       x2
       (secant f x1 x2)))
 
