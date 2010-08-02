@@ -6,12 +6,9 @@
 ;; The function then calls itself recursively with newly computed values,
 ;; until a root of f is found.
 
+(load "helpers")
 (define (secant f x0 x1)
-  (define x2
-    (- x1
-       (* (f x1)
-          (/ (- x0 x1)
-             (- (f x0) (f x1))))))
+  (define x2 (linear-interpolate f x0 x1))
 
   (define (close-enough? x)
     (define tolerance 0.00001)
