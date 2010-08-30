@@ -1,0 +1,79 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      1989,         69]
+NotebookOptionsPosition[      1740,         56]
+NotebookOutlinePosition[      2078,         71]
+CellTagsIndexPosition[      2035,         68]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\n", 
+   RowBox[{
+   "The", " ", "ladder", " ", "example", " ", "on", " ", "page", " ", "7", 
+    "\n", 
+    RowBox[{"Language", ":", " ", 
+     RowBox[{
+     "Mathematica", "\n", "\n", "Evaluate", " ", "this", " ", "code", " ", 
+      "in", " ", "a", " ", "Mathematica", " ", 
+      RowBox[{"notebook", "."}]}]}]}], "\n", "*)"}], "\n", "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"a", " ", "=", " ", 
+     RowBox[{"123", " ", "Degree"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"l", "[", "c_", "]"}], " ", ":=", "  ", 
+     RowBox[{
+      RowBox[{"9", "/", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"Pi", " ", "-", " ", "a", " ", "-", " ", "c"}], "]"}]}], " ", 
+      "+", " ", 
+      RowBox[{"7", "/", 
+       RowBox[{"Sin", "[", "c", "]"}]}]}]}], ";"}], "\n", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"l", "[", "c", "]"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"c", ",", " ", "0.4", ",", " ", "0.5"}], "}"}]}], "]"}], "\n", 
+   RowBox[{"FindMinimum", "[", 
+    RowBox[{"l", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"0.4", ",", " ", "0.5"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{3.492155719825078*^9}]
+},
+WindowSize->{640, 656},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1191, 34, 178, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
