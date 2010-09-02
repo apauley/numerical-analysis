@@ -2,6 +2,18 @@
 
 from helpers import *
 
+def swap_points(x):
+    s = []
+    s = x
+    s.sort()
+    f = s[1]
+    sn = s[2]
+    t = s[0]
+    s[0] = f
+    s[1] = sn
+    s[2] = t
+    return s
+
 def mullers_method(func, a, b, r, max_steps=MaxSteps):
     print_header("Muller's method", func.__doc__)
     x = [a,b,r]
