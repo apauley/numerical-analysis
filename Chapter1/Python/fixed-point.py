@@ -3,11 +3,11 @@
 from helpers import *
 
 def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("fixed point iteration",func)
+    print_header("fixed point iteration",func.__doc__)
     p = initialApproximation
     loopCounter = 1
     for loopCounter in range(max_steps):
-        oldP = evaluate(func,float(p))
+        oldP = func(p)
         print "Current approximation is %.9f" % oldP
         if (abs(p - oldP) < tolerance):
             print "Approximate root is %.9f (found in %d steps)" % (oldP,int(loopCounter))

@@ -3,16 +3,16 @@
 from helpers import *
 
 def secant(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("secant method",func)
-    if (abs(evaluate(func,float(a))) < abs(evaluate(func,float(b)))):
+    print_header("secant method",func.__doc__)
+    if abs(func(a)) < abs(func(b)):
         t = b
         b = a
         a = t
     print "a = %.9f b = %.9f" % (a,b)
     for loopCount in range(max_steps):
-        p = b - (evaluate(func,float(a)) * ((a-b)/(evaluate(func,float(a))-evaluate(func,float(b)))))
+        p = b - (func(a) * ((a-b) / (func(a) - func(b))))
         print "Current approximation is %.9f" % p
-        if (abs(evaluate(func,float(p))) < tolerance):
+        if (abs(func(p)) < tolerance):
             print "Root is %.9f (%d iterations)" % (p,loopCount+1)
             return
         a = b

@@ -3,16 +3,16 @@
 from helpers import *
 
 def regula_falsi(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("regula falsi (false position)",func)
+    print_header("regula falsi (false position)",func.__doc__)
     p = 0.0
     for loopCount in range(max_steps):
-        p = b - (evaluate(func,float(b)) * ((a-b)/(evaluate(func,float(a))-evaluate(func,float(b)))))
+        p = b - (func(b) * ((a-b)/(func(a)-func(b))))
         print "Current approximation is %.9f" % p
-        if (math.copysign(evaluate(func,float(a)),evaluate(func,float(b))) != evaluate(func,float(a))):
+        if math.copysign(func(a), func(b)) != func(a):
             b = p
         else:
             a = p
-        if (abs(evaluate(func,float(p))) < tolerance):
+        if abs(func(p)) < tolerance:
             print "Root is %.9f (%d iterations)" % (p,int(loopCount))
             return
     print "Root find cancelled at %.9f" % p
