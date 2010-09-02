@@ -4,31 +4,7 @@
 # http://zahirj.wordpress.com/2009/04/04/complete-listing-of-python-code-for-selected-root-finding-methods/
 
 import math
-
-MaxSteps = 30
-Tolerance = 0.0001
-
-def swap_points(x):
-	s = []
-	s = x
-	s.sort()
-	f = s[1]
-	sn = s[2]
-	t = s[0]
-	s[0] = f
-	s[1] = sn
-	s[2] = t
-	return s
-
-def sub_dict(somedict, somekeys, default=math):
-		return dict([ (k, somedict.get(k, default)) for k in somekeys ])
-
-def evaluate(func, x):
-	safe_list = ['math','acos', 'asin', 'atan', 'atan2', 'ceil', 'cos', 'cosh', 'de grees', 'e', 'exp', 'fabs', 'floor', 'fmod', 'frexp', 'hypot', 'ldexp', 'log', 'log10', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh'] #use the list to filter the local namespace
-	safe_dict = sub_dict(locals(),safe_list)
-	safe_dict['abs'] = abs
-	safe_dict['x']=x
-	return eval(compile(func,"",'eval'),{"__builtins__":{}},safe_dict)
+from helpers import *
 
 def mullers_method(func, a, b, r, max_steps=MaxSteps):
 	print_header("Muller's method", func)
@@ -103,16 +79,6 @@ def regula_falsi(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
 	print "Root find cancelled at %.9f" % p
 	print_end()
 
-def print_header(t, f):
-	print "\n"
-	print "-" * 50
-	print "Using %s to solve %s" % (t,f)
-	print "-" * 50
-	print "\n"
-
-def print_end():
-	print "-" * 50
-
 def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
 	print_header("fixed point iteration",func)
 	p = initialApproximation
@@ -136,8 +102,6 @@ def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tole
 		print "Current approximation %.9f" % initialApproximation
 		initialApproximation = p
 	print_end()
-
-example_f = "(3*x) + math.sin(x) - math.exp(x)"
 
 if __name__ == '__main__':
 	try:
