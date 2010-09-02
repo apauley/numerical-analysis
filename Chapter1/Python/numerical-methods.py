@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-# This code was written by Zahir Jacobs:
+# This code was originally written by Zahir Jacobs:
 # http://zahirj.wordpress.com/2009/04/04/complete-listing-of-python-code-for-selected-root-finding-methods/
 
 import math
 
 MaxSteps = 30
+Tolerance = 0.0001
 
 def swap_points(x):
 	s = []
@@ -68,7 +69,7 @@ def bisection(func, a, b, max_steps=MaxSteps):
 			b = midPoint
 	print_end()
 
-def secant(func, a, b, max_steps=MaxSteps, tolerance=0.0001):
+def secant(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
 	print_header("secant method",func)
 	if (abs(evaluate(func,float(a))) < abs(evaluate(func,float(b)))):
 		t = b
@@ -86,7 +87,7 @@ def secant(func, a, b, max_steps=MaxSteps, tolerance=0.0001):
 	print "Root find stopped at %.9f" % p
 	print_end()
 
-def regula_falsi(func, a, b, max_steps=MaxSteps, tolerance=0.0001):
+def regula_falsi(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
 	print_header("regula falsi (false position)",func)
 	p = 0.0
 	for loopCount in range(max_steps):
@@ -112,7 +113,7 @@ def print_header(t, f):
 def print_end():
 	print "-" * 50
 
-def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=0.0001):
+def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
 	print_header("fixed point iteration",func)
 	p = initialApproximation
 	loopCounter = 1
@@ -125,7 +126,7 @@ def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=0.0001
 		p = oldP
 	print_end()
 
-def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tolerance=0.0001):
+def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
 	print_header("newton/raphson",func + " with " + defFunc + " as derivative")
 	for loopCounter in range(max_steps):
 		p = initialApproximation - (evaluate(func,float(initialApproximation))/evaluate(derFunc,float(initialApproximation)))
