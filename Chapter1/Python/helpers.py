@@ -11,12 +11,5 @@ def example_deriv(x):
     "3 + cos x - e^x"
     return 3 + math.cos(x) - math.exp(x)
 
-def print_header(t, f):
-    print "\n"
-    print "-" * 50
-    print "Using %s to solve %s" % (t,f)
-    print "-" * 50
-    print "\n"
-
 def print_end():
     print "-" * 50

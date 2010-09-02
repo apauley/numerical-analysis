@@ -3,7 +3,7 @@
 from helpers import *
 
 def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("fixed point iteration",func.__doc__)
+    print "Using fixed point iteration to solve %s\n" % func.__doc__
     p = initialApproximation
     loopCounter = 1
     for loopCounter in range(max_steps):

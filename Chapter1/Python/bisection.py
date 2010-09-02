@@ -3,7 +3,7 @@
 from helpers import *
 
 def bisection(func, a, b, max_steps=MaxSteps):
-    print_header("Bisection Method", func.__doc__)
+    print "Using Bisection Method to solve %s\n" % func.__doc__
     initial = func(a)
     for loopCounter in range(max_steps):
         midPoint = a + (b-a)/2

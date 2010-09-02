@@ -3,7 +3,9 @@
 from helpers import *
 
 def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("newton/raphson", func.__doc__ + " with " + derFunc.__doc__ + " as derivative")
+    print "Using Newton/Raphson to solve %s" % func.__doc__
+    print "Derivative used: %s\n" % func.__doc__
+
     for loopCounter in range(max_steps):
         p = initialApproximation - func(initialApproximation)/derFunc(initialApproximation)
         if (abs(p - initialApproximation) < tolerance):

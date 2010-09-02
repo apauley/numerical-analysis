@@ -3,7 +3,7 @@
 from helpers import *
 
 def secant(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("secant method",func.__doc__)
+    print "Using secant method to solve %s\n" % func.__doc__
     if abs(func(a)) < abs(func(b)):
         t = b
         b = a

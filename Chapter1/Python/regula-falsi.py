@@ -3,7 +3,7 @@
 from helpers import *
 
 def regula_falsi(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("regula falsi (false position)",func.__doc__)
+    print "Using Regula Falsi (false position) to solve %s\n" % func.__doc__
     p = 0.0
     for loopCount in range(max_steps):
         p = b - (func(b) * ((a-b)/(func(a)-func(b))))

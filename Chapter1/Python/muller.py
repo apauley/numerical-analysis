@@ -15,7 +15,7 @@ def swap_points(x):
     return s
 
 def mullers_method(func, a, b, r, max_steps=MaxSteps):
-    print_header("Muller's method", func.__doc__)
+    print "Using Muller's method to solve %s\n" % func.__doc__
     x = [a,b,r]
     for loopCount in range(max_steps):
         x = swap_points(x)
