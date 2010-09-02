@@ -61,19 +61,6 @@ def regula_falsi(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
     print "Root find cancelled at %.9f" % p
     print_end()
 
-def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("fixed point iteration",func)
-    p = initialApproximation
-    loopCounter = 1
-    for loopCounter in range(max_steps):
-        oldP = evaluate(func,float(p))
-        print "Current approximation is %.9f" % oldP
-        if (abs(p - oldP) < tolerance):
-            print "Approximate root is %.9f (found in %d steps)" % (oldP,int(loopCounter))
-            return
-        p = oldP
-    print_end()
-
 def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
     print_header("newton/raphson",func + " with " + defFunc + " as derivative")
     for loopCounter in range(max_steps):
