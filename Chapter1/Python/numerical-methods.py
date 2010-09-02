@@ -4,16 +4,6 @@
 # http://zahirj.wordpress.com/2009/04/04/complete-listing-of-python-code-for-selected-root-finding-methods/
 
 import math
-from math import *
-
-def deg_to_rad(x):
-	return x*(math.pi/180.0)
-
-def rad_to_deg(x):
-	return x * (180.0/float(math.pi))
-
-def isdiffsign(a,b):
-	return math.copysign(a,b) != a
 
 def swapPoints(x):
 	s = []
@@ -77,9 +67,6 @@ def biSection(func, a,b,maxSteps = 30, tolerance = 0.0001):
 			b = midPoint
 	print_end()
 
-def double(x):
-	return 2*x
-
 def Secant(func,a,b,maxSteps=30, tolerance = 0.0001):
 	print_header("secant method",func)
 	if (abs(evaluate(func,float(a))) < abs(evaluate(func,float(b)))):
@@ -98,10 +85,6 @@ def Secant(func,a,b,maxSteps=30, tolerance = 0.0001):
 	print "Root find stopped at %.9f" % p
 	print_end()
 
-def getR(x1,x2,x3):
-	return (x1*x3-(x2**2))/(x1-2*x2+x3)
-def isConvergent(f, df,x):
-	return ((f(x)*df(x))/(df(x))**2) < 1
 def regulaFalsi(func, a,b, maxSteps = 30, tolerance = 0.0001):
 	print_header("regula falsi (false position)",func)
 	p = 0.0
