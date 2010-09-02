@@ -137,9 +137,11 @@ def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tole
 		initialApproximation = p
 	print_end()
 
+example_f = "(3*x) + math.sin(x) - math.exp(x)"
+
 if __name__ == '__main__':
 	try:
 		print "in __main__"
-		mullers_method("math.cos(x) - x", 0.0, 0.5, 1.0)
+		mullers_method(example_f, 0.0, 0.5, 1.0)
 	finally:
 		print "Fully done."
