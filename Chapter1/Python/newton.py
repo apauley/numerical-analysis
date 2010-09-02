@@ -13,7 +13,6 @@ def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tole
             break
         print "Current approximation %.9f" % initialApproximation
         initialApproximation = p
-    print_end()
 
 if __name__ == '__main__':
     newton_raphson(example_f, example_deriv, 0)

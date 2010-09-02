@@ -10,6 +10,3 @@ def example_f(x):
 def example_deriv(x):
     "3 + cos x - e^x"
     return 3 + math.cos(x) - math.exp(x)
-
-def print_end():
-    print "-" * 50

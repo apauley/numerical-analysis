@@ -16,7 +16,6 @@ def regula_falsi(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
             print "Root is %.9f (%d iterations)" % (p,int(loopCount))
             return
     print "Root find cancelled at %.9f" % p
-    print_end()
 
 if __name__ == '__main__':
     regula_falsi(example_f, 0, 1)

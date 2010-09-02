@@ -37,7 +37,6 @@ def mullers_method(func, a, b, r, max_steps=MaxSteps):
         else:
             x = [x[2],x[0],root]
         x = swap_points(x)
-    print_end()
 
 if __name__ == '__main__':
     mullers_method(example_f, 0.0, 0.5, 1.0)

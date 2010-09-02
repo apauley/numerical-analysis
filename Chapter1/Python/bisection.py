@@ -14,7 +14,6 @@ def bisection(func, a, b, max_steps=MaxSteps):
             initial = result
         else:
             b = midPoint
-    print_end()
 
 if __name__ == '__main__':
     bisection(example_f, 0, 1)

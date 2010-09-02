@@ -13,7 +13,6 @@ def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=Tolera
             print "Approximate root is %.9f (found in %d steps)" % (oldP,int(loopCounter))
             return
         p = oldP
-    print_end()
 
 if __name__ == '__main__':
     fixed_point(example_f, 1)

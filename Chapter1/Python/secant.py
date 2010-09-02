@@ -18,7 +18,6 @@ def secant(func, a, b, max_steps=MaxSteps, tolerance=Tolerance):
         a = b
         b = p
     print "Root find stopped at %.9f" % p
-    print_end()
 
 if __name__ == '__main__':
     secant(example_f, 1, 0)
