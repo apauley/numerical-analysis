@@ -27,10 +27,10 @@ def evaluate(func, x):
 	safe_dict['x']=x
 	return eval(compile(func,"",'eval'),{"__builtins__":{}},safe_dict)
 
-def mullers_method(func, a, b, r, maxSteps=30):
+def mullers_method(func, a, b, r, max_steps=30):
 	print_header("Muller's method", func)
 	x = [a,b,r]
-	for loopCount in range(maxSteps):
+	for loopCount in range(max_steps):
 		x = swap_points(x)
 		y = evaluate(func,float(x[0])),evaluate(func,float(x[1])),evaluate(func,float(x[2]))
 		h1 = x[1]-x[0]
@@ -52,10 +52,10 @@ def mullers_method(func, a, b, r, maxSteps=30):
 		x = swap_points(x)
 	print_end()
 
-def bisection(func, a, b, maxSteps=30):
+def bisection(func, a, b, max_steps=30):
 	print_header("Bisection Method", func)
 	initial = evaluate(func,float(a))
-	for loopCounter in range(maxSteps):
+	for loopCounter in range(max_steps):
 		midPoint = a + (b-a)/2.0
 		result = evaluate(func,float(midPoint))
 		print "Accuracy is within %.9f " % (abs(b-a)/2.0)
@@ -66,14 +66,14 @@ def bisection(func, a, b, maxSteps=30):
 			b = midPoint
 	print_end()
 
-def secant(func, a, b, maxSteps=30, tolerance=0.0001):
+def secant(func, a, b, max_steps=30, tolerance=0.0001):
 	print_header("secant method",func)
 	if (abs(evaluate(func,float(a))) < abs(evaluate(func,float(b)))):
 		t = b
 		b = a
 		a = t
 	print "a = %.9f b = %.9f" % (a,b)
-	for loopCount in range(maxSteps):
+	for loopCount in range(max_steps):
 		p = b - (evaluate(func,float(a)) * ((a-b)/(evaluate(func,float(a))-evaluate(func,float(b)))))
 		print "Current approximation is %.9f" % p
 		if (abs(evaluate(func,float(p))) < tolerance):
@@ -84,10 +84,10 @@ def secant(func, a, b, maxSteps=30, tolerance=0.0001):
 	print "Root find stopped at %.9f" % p
 	print_end()
 
-def regula_falsi(func, a, b, maxSteps=30, tolerance=0.0001):
+def regula_falsi(func, a, b, max_steps=30, tolerance=0.0001):
 	print_header("regula falsi (false position)",func)
 	p = 0.0
-	for loopCount in range(maxSteps):
+	for loopCount in range(max_steps):
 		p = b - (evaluate(func,float(b)) * ((a-b)/(evaluate(func,float(a))-evaluate(func,float(b)))))
 		print "Current approximation is %.9f" % p
 		if (math.copysign(evaluate(func,float(a)),evaluate(func,float(b))) != evaluate(func,float(a))):
@@ -110,11 +110,11 @@ def print_header(t, f):
 def print_end():
 	print "-" * 50
 
-def fixed_point(func, initialApproximation, maxSteps=30, tolerance=0.0001):
+def fixed_point(func, initialApproximation, max_steps=30, tolerance=0.0001):
 	print_header("fixed point iteration",func)
 	p = initialApproximation
 	loopCounter = 1
-	for loopCounter in range(maxSteps):
+	for loopCounter in range(max_steps):
 		oldP = evaluate(func,float(p))
 		print "Current approximation is %.9f" % oldP
 		if (abs(p - oldP) < tolerance):
@@ -123,9 +123,9 @@ def fixed_point(func, initialApproximation, maxSteps=30, tolerance=0.0001):
 		p = oldP
 	print_end()
 
-def newton_raphson(func, derFunc, initialApproximation, maxSteps=30, tolerance=0.0001):
+def newton_raphson(func, derFunc, initialApproximation, max_steps=30, tolerance=0.0001):
 	print_header("newton/raphson",func + " with " + defFunc + " as derivative")
-	for loopCounter in range(maxSteps):
+	for loopCounter in range(max_steps):
 		p = initialApproximation - (evaluate(func,float(initialApproximation))/evaluate(derFunc,float(initialApproximation)))
 		if (abs(p - initialApproximation) < tolerance):
 			print "Approximate root is %.9f (found in %i steps)" %(p,loopCounter)
