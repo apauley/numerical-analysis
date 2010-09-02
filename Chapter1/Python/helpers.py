@@ -23,16 +23,6 @@ def swap_points(x):
     s[2] = t
     return s
 
-def sub_dict(somedict, somekeys, default=math):
-        return dict([ (k, somedict.get(k, default)) for k in somekeys ])
-
-def evaluate(func, x):
-    safe_list = ['math','acos', 'asin', 'atan', 'atan2', 'ceil', 'cos', 'cosh', 'de grees', 'e', 'exp', 'fabs', 'floor', 'fmod', 'frexp', 'hypot', 'ldexp', 'log', 'log10', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh'] #use the list to filter the local namespace
-    safe_dict = sub_dict(locals(),safe_list)
-    safe_dict['abs'] = abs
-    safe_dict['x']=x
-    return eval(compile(func,"",'eval'),{"__builtins__":{}},safe_dict)
-
 def print_header(t, f):
     print "\n"
     print "-" * 50
