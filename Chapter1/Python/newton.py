@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 
-import math
 from helpers import *
 
 def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
-    print_header("newton/raphson",func + " with " + defFunc + " as derivative")
+    print_header("newton/raphson",func + " with " + derFunc + " as derivative")
     for loopCounter in range(max_steps):
         p = initialApproximation - (evaluate(func,float(initialApproximation))/evaluate(derFunc,float(initialApproximation)))
         if (abs(p - initialApproximation) < tolerance):
@@ -13,3 +12,6 @@ def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tole
         print "Current approximation %.9f" % initialApproximation
         initialApproximation = p
     print_end()
+
+if __name__ == '__main__':
+    newton_raphson(example_f, example_deriv, 0)
