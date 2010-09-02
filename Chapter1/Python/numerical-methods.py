@@ -31,20 +31,6 @@ def mullers_method(func, a, b, r, max_steps=MaxSteps):
         x = swap_points(x)
     print_end()
 
-def bisection(func, a, b, max_steps=MaxSteps):
-    print_header("Bisection Method", func)
-    initial = evaluate(func,float(a))
-    for loopCounter in range(max_steps):
-        midPoint = a + (b-a)/2.0
-        result = evaluate(func,float(midPoint))
-        print "Accuracy is within %.9f " % (abs(b-a)/2.0)
-        if (result == 0 or ( (abs(b-a)/2.0) > 0)):
-            a = midPoint
-            initial = result
-        else:
-            b = midPoint
-    print_end()
-
 def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tolerance=Tolerance):
     print_header("newton/raphson",func + " with " + defFunc + " as derivative")
     for loopCounter in range(max_steps):
