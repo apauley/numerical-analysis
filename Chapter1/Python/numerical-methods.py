@@ -20,14 +20,14 @@ def swap_points(x):
 def sub_dict(somedict, somekeys, default=math):
 		return dict([ (k, somedict.get(k, default)) for k in somekeys ])
 
-def evaluate(func,x):
+def evaluate(func, x):
 	safe_list = ['math','acos', 'asin', 'atan', 'atan2', 'ceil', 'cos', 'cosh', 'de grees', 'e', 'exp', 'fabs', 'floor', 'fmod', 'frexp', 'hypot', 'ldexp', 'log', 'log10', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh'] #use the list to filter the local namespace
 	safe_dict = sub_dict(locals(),safe_list)
 	safe_dict['abs'] = abs
 	safe_dict['x']=x
 	return eval(compile(func,"",'eval'),{"__builtins__":{}},safe_dict)
 
-def mullers_method(func,a,b,r, maxSteps = 30, tolerance = 0.0001):
+def mullers_method(func, a, b, r, maxSteps=30, tolerance=0.0001):
 	print_header("Muller's method",func)
 	x = [a,b,r]
 	for loopCount in range(maxSteps):
@@ -53,7 +53,7 @@ def mullers_method(func,a,b,r, maxSteps = 30, tolerance = 0.0001):
 		x = swap_points(x)
 	print_end()
 
-def bisection(func, a,b,maxSteps = 30, tolerance = 0.0001):
+def bisection(func, a, b, maxSteps=30, tolerance=0.0001):
 	print_header("Bisection Method", func)
 	initial = evaluate(func,float(a))
 	for loopCounter in range(maxSteps):
@@ -67,7 +67,7 @@ def bisection(func, a,b,maxSteps = 30, tolerance = 0.0001):
 			b = midPoint
 	print_end()
 
-def secant(func,a,b,maxSteps=30, tolerance = 0.0001):
+def secant(func, a, b, maxSteps=30, tolerance=0.0001):
 	print_header("secant method",func)
 	if (abs(evaluate(func,float(a))) < abs(evaluate(func,float(b)))):
 		t = b
@@ -85,7 +85,7 @@ def secant(func,a,b,maxSteps=30, tolerance = 0.0001):
 	print "Root find stopped at %.9f" % p
 	print_end()
 
-def regula_falsi(func, a,b, maxSteps = 30, tolerance = 0.0001):
+def regula_falsi(func, a, b, maxSteps=30, tolerance=0.0001):
 	print_header("regula falsi (false position)",func)
 	p = 0.0
 	for loopCount in range(maxSteps):
@@ -101,7 +101,7 @@ def regula_falsi(func, a,b, maxSteps = 30, tolerance = 0.0001):
 	print "Root find cancelled at %.9f" % p
 	print_end()
 
-def print_header(t,f):
+def print_header(t, f):
 	print "\n"
 	print "-" * 50
 	print "Using %s to solve %s" % (t,f)
@@ -124,7 +124,7 @@ def fixed_point(func, initialApproximation, maxSteps=30, tolerance=0.0001):
 		p = oldP
 	print_end()
 
-def newton_raphson(func, derFunc, initialApproximation, maxSteps = 30, tolerance= 0.0001):
+def newton_raphson(func, derFunc, initialApproximation, maxSteps=30, tolerance=0.0001):
 	print_header("newton/raphson",func + " with " + defFunc + " as derivative")
 	for loopCounter in range(maxSteps):
 		p = initialApproximation - (evaluate(func,float(initialApproximation))/evaluate(derFunc,float(initialApproximation)))
@@ -138,6 +138,6 @@ def newton_raphson(func, derFunc, initialApproximation, maxSteps = 30, tolerance
 if __name__ == '__main__':
 	try:
 		print "in __main__"
-		mullers_method("math.cos(x) - x",0.0,0.5,1.0)
+		mullers_method("math.cos(x) - x", 0.0, 0.5, 1.0)
 	finally:
 		print "Fully done."
