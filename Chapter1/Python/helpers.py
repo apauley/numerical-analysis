@@ -4,6 +4,7 @@ MaxSteps = 30
 Tolerance = 0.0001
 
 example_f = "(3*x) + math.sin(x) - math.exp(x)"
+example_deriv = "3 + math.cos(x) - math.exp(x)"
 
 def swap_points(x):
     s = []
