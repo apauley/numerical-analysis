@@ -27,13 +27,12 @@ def evaluate(func, x):
 	safe_dict['x']=x
 	return eval(compile(func,"",'eval'),{"__builtins__":{}},safe_dict)
 
-def mullers_method(func, a, b, r, maxSteps=30, tolerance=0.0001):
-	print_header("Muller's method",func)
+def mullers_method(func, a, b, r, maxSteps=30):
+	print_header("Muller's method", func)
 	x = [a,b,r]
 	for loopCount in range(maxSteps):
 		x = swap_points(x)
 		y = evaluate(func,float(x[0])),evaluate(func,float(x[1])),evaluate(func,float(x[2]))
-		#y = map(func,x)
 		h1 = x[1]-x[0]
 		h2 = x[0]-x[2]
 		lam = h2/h1
@@ -53,7 +52,7 @@ def mullers_method(func, a, b, r, maxSteps=30, tolerance=0.0001):
 		x = swap_points(x)
 	print_end()
 
-def bisection(func, a, b, maxSteps=30, tolerance=0.0001):
+def bisection(func, a, b, maxSteps=30):
 	print_header("Bisection Method", func)
 	initial = evaluate(func,float(a))
 	for loopCounter in range(maxSteps):
