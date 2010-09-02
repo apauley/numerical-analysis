@@ -5,6 +5,8 @@
 
 import math
 
+MaxSteps = 30
+
 def swap_points(x):
 	s = []
 	s = x
@@ -27,7 +29,7 @@ def evaluate(func, x):
 	safe_dict['x']=x
 	return eval(compile(func,"",'eval'),{"__builtins__":{}},safe_dict)
 
-def mullers_method(func, a, b, r, max_steps=30):
+def mullers_method(func, a, b, r, max_steps=MaxSteps):
 	print_header("Muller's method", func)
 	x = [a,b,r]
 	for loopCount in range(max_steps):
@@ -52,7 +54,7 @@ def mullers_method(func, a, b, r, max_steps=30):
 		x = swap_points(x)
 	print_end()
 
-def bisection(func, a, b, max_steps=30):
+def bisection(func, a, b, max_steps=MaxSteps):
 	print_header("Bisection Method", func)
 	initial = evaluate(func,float(a))
 	for loopCounter in range(max_steps):
@@ -66,7 +68,7 @@ def bisection(func, a, b, max_steps=30):
 			b = midPoint
 	print_end()
 
-def secant(func, a, b, max_steps=30, tolerance=0.0001):
+def secant(func, a, b, max_steps=MaxSteps, tolerance=0.0001):
 	print_header("secant method",func)
 	if (abs(evaluate(func,float(a))) < abs(evaluate(func,float(b)))):
 		t = b
@@ -84,7 +86,7 @@ def secant(func, a, b, max_steps=30, tolerance=0.0001):
 	print "Root find stopped at %.9f" % p
 	print_end()
 
-def regula_falsi(func, a, b, max_steps=30, tolerance=0.0001):
+def regula_falsi(func, a, b, max_steps=MaxSteps, tolerance=0.0001):
 	print_header("regula falsi (false position)",func)
 	p = 0.0
 	for loopCount in range(max_steps):
@@ -110,7 +112,7 @@ def print_header(t, f):
 def print_end():
 	print "-" * 50
 
-def fixed_point(func, initialApproximation, max_steps=30, tolerance=0.0001):
+def fixed_point(func, initialApproximation, max_steps=MaxSteps, tolerance=0.0001):
 	print_header("fixed point iteration",func)
 	p = initialApproximation
 	loopCounter = 1
@@ -123,7 +125,7 @@ def fixed_point(func, initialApproximation, max_steps=30, tolerance=0.0001):
 		p = oldP
 	print_end()
 
-def newton_raphson(func, derFunc, initialApproximation, max_steps=30, tolerance=0.0001):
+def newton_raphson(func, derFunc, initialApproximation, max_steps=MaxSteps, tolerance=0.0001):
 	print_header("newton/raphson",func + " with " + defFunc + " as derivative")
 	for loopCounter in range(max_steps):
 		p = initialApproximation - (evaluate(func,float(initialApproximation))/evaluate(derFunc,float(initialApproximation)))
